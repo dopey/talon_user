@@ -1,12 +1,14 @@
 from talon.voice import Context, Key
 
-languages = ['.php', '.py', '.java', '.yml', '.json']
-bundles = ['com.postmanlabs.mac']
-
-ctx = Context('code', func=lambda app, win:
-              any(app.bundle == b for b in bundles)
-              or any(win.doc.endswith(l) for l in languages)
-              )
+terminals = ('com.apple.Terminal', 'com.googlecode.iterm2')
+ctx = Context('code', func=lambda app, win: any(
+    t in app.bundle for t in terminals))
+#languages = ['.php', '.py', '.java', '.yml', '.json']
+#bundles = ['com.postmanlabs.mac']
+#ctx = Context('code', func=lambda app, win:
+#              any(app.bundle == b for b in bundles)
+#              or any(win.doc.endswith(l) for l in languages)
+#              )
 
 keymap = {
     'sinker': [Key('cmd-right ;')],

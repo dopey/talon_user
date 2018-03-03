@@ -4,7 +4,7 @@ import string
 
 # If you're used to VC alphabet, use the line below instead
 #alpha_alt = 'arch brov char dell etch fomp goof hark ice jinks koop lug mowsh nerb ork pooch quash rosh souk teek unks verge womp trex yang zooch'.split()
-alpha_alt = 'air bat cap die each fail gone harm sit jinks crash look mad near odd pit quest red sun trap urge vest whale box yang sap'.split()
+alpha_alt = 'air bat seek die each fomp gone harm ice jinks kate look emma near odd pit quest red sun teeth urge vest whale box yang sap'.split()
 
 alnum = list(zip(alpha_alt, string.ascii_lowercase)) + \
     [(str(i), str(i)) for i in range(0, 10)]
