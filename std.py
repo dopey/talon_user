@@ -4,7 +4,8 @@ import string
 
 # If you're used to VC alphabet, use the line below instead
 #alpha_alt = 'arch brov char dell etch fomp goof hark ice jinks koop lug mowsh nerb ork pooch quash rosh souk teek unks verge womp trex yang zooch'.split()
-alpha_alt = 'air bat seek die each fomp gone harm ice jinks kate look emma near odd pit quest red sun teeth urge vest whale box yang sap'.split()
+alpha_alt = 'ace bat seek die each fomp gone harm ice jinks kate ella emma near odd pit quest rick sun teeth urge vest whale box yang sap'.split()
+#alpha_alt = 'air bat cap die each fail gone harm sit jinks crash look mad near odd pit quest red sun trap urge vest whale box yang sap'.split()
 
 alnum = list(zip(alpha_alt, string.ascii_lowercase)) + \
     [(str(i), str(i)) for i in range(0, 10)]
@@ -14,8 +15,8 @@ alpha.update(dict(alnum))
 alpha.update({'ship %s' % word: letter for word,
               letter in zip(alpha_alt, string.ascii_uppercase)})
 
-alpha.update({'control %s' % k: Key('ctrl-%s' % v) for k, v in alnum})
-alpha.update({'command %s' % k: Key('cmd-%s' % v) for k, v in alnum})
+alpha.update({'troll %s' % k: Key('ctrl-%s' % v) for k, v in alnum})
+alpha.update({'chom %s' % k: Key('cmd-%s' % v) for k, v in alnum})
 alpha.update({'command shift %s' % k: Key('ctrl-shift-%s' % v)
               for k, v in alnum})
 alpha.update({'alt %s' % k: Key('alt-%s' % v) for k, v in alnum})
@@ -68,7 +69,7 @@ formatters = {
     'pathway':  (True, lambda i, word, _: word if i == 0 else '/'+word),
     'dotsway':  (True, lambda i, word, _: word if i == 0 else '.'+word),
     'snake':  (True, lambda i, word, _: word if i == 0 else '_'+word),
-    'yellsnik':  (True, lambda i, word, _: word.capitalize() if i == 0 else '_'+word.capitalize()),
+    'yellsnik':  (True, lambda i, word, _: word.upper() if i == 0 else '_'+word.upper()),
     'smash':  (True, lambda i, word, _: word),
     'dollcram': (True, lambda i, word, _: '$'+word if i == 0 else word.capitalize()),
     'champ': (True, lambda i, word, _: word.capitalize() if i == 0 else " "+word),
@@ -80,6 +81,7 @@ formatters = {
     'yeller': (False, lambda i, word, _: word.upper()),
     'dub-string': (False, surround('"')),
     'string': (False, surround("'")),
+    'glitch': (False, surround("`")),
     'padded': (False, surround(" ")),
     'rot thirteen':  (False, rot13),
 }

@@ -7,8 +7,11 @@ keymap = {
     'exit session': [Key('ctrl-c'), 'exit\n'],
     'broadcaster': Key('cmd-alt-i'),
     'clear session': [Key('ctrl-c'), 'clear\n'],
+    'exit session': [Key('ctrl-c'), 'exit\n'],
+    'full-screen': Key('cmd-shift-enter'),
+    'pseudo': 'sudo',
     'split horizontal': Key('cmd-shift-d'),
-    'split vertical': Key('cmd-d'),
+
 }
 
 ctx.keymap(keymap)

@@ -6,20 +6,29 @@ ctx = Context('terminal', func=lambda app, win: any(
     t in app.bundle for t in terminals))
 
 keymap = {
-    'cd': 'cd ',
+    'cd': ['cd ; ls', Key('left'), Key('left'), Key('left'), Key('left')],
     '(ls | run ellis | run alice)': 'ls\n',
-    'run make (durr | dear)': 'mkdir ',
-    '[go] parent': 'cd ..; ls\n',
+    '(la | run la)': 'ls -la\n',
+    'durrup': 'cd ..; ls\n',
     'go back': 'cd -\n',
-    'run jet': 'git ',
-    'run jet clone': 'git clone ',
-    'run jet checkout': 'git checkout ',
-    'run jet diff': 'git diff ',
-    'run jet commit': 'git commit ',
-    'run jet push': 'git push ',
-    'run jet pull': 'git pull ',
-    'run jet status': 'git status ',
-    'run jet add': 'git add ',
+    'shell copy': 'cp ',
+    'shell copy curse': 'cp -r',
+    'shell make (durr | dear)': 'mkdir ',
+    'shell mipple': 'mkdir -p ',
+    'shell move': 'mv ',
+    'shell remove': 'rm ',
+    'shell remove curse': 'rm -rf ',
+    # Git
+    'jet': 'git ',
+    'jet add': 'git add ',
+    'jet clone': 'git clone ',
+    'jet checkout': 'git checkout ',
+    'jet checkout branch': 'git checkout -B ',
+    'jet commit': 'git commit ',
+    'jet diff': 'git diff ',
+    'jet pull': 'git pull ',
+    'jet push': 'git push ',
+    'jet status': 'git status ',
 
     # would require to symlink sublime -
     # http://olivierlacan.com/posts/launch-sublime-text-3-from-the-command-line/

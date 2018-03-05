@@ -3,7 +3,7 @@ from talon.voice import Context, Key
 ctx = Context('symbol')
 
 keymap = {
-    '(escape | randall)': Key('esc'),
+    '(escape | lulu | randall)': Key('esc'),
     '(question [mark] | questo)': '?',
     '(minus | dash)': '-',
     'plus': '+',
@@ -34,20 +34,64 @@ keymap = {
     '(dubquote | double quote | quatches)': '"',
     '(quote | quatchet)': "'",
     'triple quote': "'''",
+    'tick': "`",
+    'triple tick': "```",
     '(dot | period)': '.',
     'comma': ',',
     'swipe': ', ',
     'coalgap': ': ',
     '(space | skoosh)': ' ',
     '[forward] slash': '/',
+    '[forward] slasher': '// ',
+    '[forward] dubslash': '//',
     'backslash': '\\',
+    'coalshock': [':', Key('enter')],
+    'coal twice': '::',
+    'ellipsis': '...',
+    'mintwice': '--',
+    'plustwice': '++',
+
+    # equality
+    'coleek': ' := ',
+    'empty dict': '{}',
+    'minquall': '-=',
+    'pluqual': '+=',
+    'starqual': '*=',
+    'lessqual': ' <= ',
+    'grayqual': ' >= ',
+    'equals': '=',
+    '([is] equal to | longqual)': ' == ',
+    '([is] not equal to | banquall)': ' != ',
+    'trickle': ' === ',
+    '(ranqual | nockle)': ' !== ',
+
+    '(arrow | lambo)': '->',
+    'shrocket': ' => ',
+    'sinker': [Key('cmd-right ;')],
+
+    # surrounders
+    'angler': ['<>', Key('left')],
+    '(empty array | brackers)': '[]',
+    'brax': ['[]', Key('left')],
+    'brax-block': ['[', Key('enter')],
+    'posh': ["''", Key('left')],
+    'coif': ['""', Key('left')],
+    'glitch': ['``', Key('left')],
+    'kirk': ['{}', Key('left')],
+    '(block | kirblock)': ['{}', Key('left enter')],
+    '(call | prekris)': '()',
+    'prex': ['()', Key('left')],
+    'prex-block': ['(', Key('enter')],
+    'precoif': ['("")', Key('left'), Key('left')],
+
+    'and sign': '&',
 
     '(dot dot | dotdot | doodle)': '..',
     '(enter | shock)': Key('enter'),
     '(delete | junk)': Key('backspace'),
     'spunk': Key('delete'),
 
-    'equals': '=',
+
 }
 
 ctx.keymap(keymap)

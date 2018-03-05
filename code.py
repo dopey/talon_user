@@ -10,42 +10,16 @@ ctx = Context('code', func=lambda app, win: any(
 #              or any(win.doc.endswith(l) for l in languages)
 #              )
 
+def surround(by):
+    def func(i, word, last):
+        if i == 0:
+            word = by + word
+        if last:
+            word += by
+        return word
+    return func
+
 keymap = {
-    'sinker': [Key('cmd-right ;')],
-
-    'args': ['()', Key('left')],
-    'angler': ['<>', Key('left')],
-    '(block | kirblock)': ['{}', Key('left enter')],
-    'args-block': ['(', Key('enter')],
-    'brax-block': ['[', Key('enter')],
-
-    'coalshock': [':', Key('enter')],
-    'coal twice': '::',
-    'ellipsis': '...',
-    'mintwice': '--',
-    'plustwice': '++',
-
-    '(indirect | reference)': '&',
-    '([is] equal to | longqual)': ' == ',
-    '([is] not equal to | banquall)': ' != ',
-    'trickle': ' === ',
-    '(ranqual | nockle)': ' !== ',
-    '(call | prekris)': '()',
-
-    '(index | brax)': ['[]', Key('left')],
-    '(empty dict | kirk)': ['{}', Key('left')],
-
-    '(empty array | brackers)': '[]',
-    'empty dict': '{}',
-    'minquall': '-=',
-    'pluqual': '+=',
-    'starqual': '*=',
-    'lessqual': ' <= ',
-    'grayqual': ' >= ',
-
-    '(arrow | lambo)': '->',
-    'shrocket': ' => ',
-
     'state if': ['if ()', Key('left')],
     'state else': ['else {}', Key('left enter')],
     'state else if': ['else if ()', Key('left')],
@@ -59,6 +33,7 @@ keymap = {
     'tip pent': 'int ',
 
     'word no': 'null',
+    'word kneel': 'nil',
     'word printf': 'printf',
     'word define': 'def ',
     'word import': 'import ',
