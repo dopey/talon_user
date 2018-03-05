@@ -50,12 +50,8 @@ for_temp_escape_prefix = {
     'wax': 'w',
     # move-forward-big-word
     'wacko': 'W',
-    # move-line-end
-    'ricky': '$',
     # move-line-end-insert
     'derek': 'A',
-    # move-line-start
-    'lefty': '^',
     # move-page-down
     'page down': Key('ctrl-d'),
     # move-page-up
@@ -80,7 +76,7 @@ for_temp_escape_prefix = {
     # fugitive-add
     'fudge pack':  ':Gwrite\n',
     # fugitive-commit
-    'fudge commit':  ':Gcommit -v -a -q\n',
+    'fudge commit':  [':Gcommit -v -a -q\n', 'i'],
     # fugitive-push
     'fudge push': ':Gpush origin HEAD\n',
     # fugitive-status
