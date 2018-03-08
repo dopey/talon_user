@@ -1,10 +1,8 @@
-from talon.voice import Context, Str, Word, Key, Rep
+from talon.voice import Context, Str, Word, Key, Rep, press
 from typing import Iterable
-import string
+import functools
 
-terminals = ('com.apple.Terminal', 'com.googlecode.iterm2')
-ctx = Context('vim', func=lambda app, win: any(
-    t in app.bundle for t in terminals))
+ctx = Context('vim', bundle='com.googlecode.iterm2')
 
 def prefix(destination, item):
   if isinstance(destination, Iterable):
@@ -15,17 +13,82 @@ def prefix(destination, item):
     return [item, destination]
 
 def temp_escape_prefix(command):
+    # ',' is my leader key in vim
     # ',/': maps to '<esc>l' in insert mode, maps to '<nop>' in other modes.
     return prefix(command, ',/')
 
 def get_first_word(m):
-  str(m.dgndictation[0]._words[0])
+    print(m.dgndictation[0]._words)
+    return str(m.dgndictation[0]._words[0])
 
 def find_next_word(m):
-  word = get_first_word(m)
-  Str("/%s\n" % word)(None)
+    word = get_first_word(m)
+    Str("/%s\n" % word)(None)
+
+numeral_map = {
+    'oh': '0',
+    'bun': '1',
+    'shoe': '2',
+    'me': '3',
+    'door': '4',
+    'dive': '5',
+    'sticks': '6',
+    'heaven': '7',
+    'gate': '8',
+    'knife': '9',
+    'nice': '9'
+}
+delimiter_words = ['click', 'clip']
+
+def parse_first_number(words):
+    result = ''
+    for index, word in enumerate(words):
+        if word in delimiter_words:
+            return (result, words[index+1:])
+        if not word in numeral_map:
+            raise Exception('%s not a number' % word)
+        result += numeral_map[word]
+
+    return (result, [])
+
+def parse_word(word):
+    word = word.lstrip('\\').split('\\', 1)[0]
+    return word
+
+def get_words(input):
+    tmp = [str(s).lower() for s in input.dgndictation[0]._words]
+    words = [parse_word(word) for word in tmp]
+    return words
+
+def jump(input):
+    words = get_words(input)
+    jump_first(words)
+
+def jump_first(words):
+    line, remainder = parse_first_number(words)
+    if line != '':
+        Str("%sgg" % line)(None)
+    return remainder
+
+def range_action(action, input):
+    words = get_words(input)
+    remainder = jump_first(words)
+    press('V')
+    if remainder:
+        jump_first(remainder)
+    press(action)
+
 
 for_temp_escape_prefix = {
+    # range-copy
+    'yank <dgndictation>': functools.partial(range_action, 'y'),
+    # range-delete
+    'snipline <dgndictation>': functools.partial(range_action, 'd'),
+    # range-poach
+    'poach <dgndictation>': functools.partial(range_action, 'p'),
+    # range-visual
+    'visor <dgndictation>': functools.partial(range_action, ''),
+
     # buffer-quit
     'barf': ':q\n',
     # buffer-write
@@ -34,7 +97,7 @@ for_temp_escape_prefix = {
     'ragequit': ':wq\n',
 
     # jump
-    'spring': 'gg',
+    'spring <dgndictation>': jump,
 
     # move-back-big-word
     'basil': 'B',
@@ -57,7 +120,7 @@ for_temp_escape_prefix = {
     # move-page-up
     'page up': Key('ctrl-u'),
     # move-top
-    'jeepway': 'gg',
+    'goofy': 'gg',
 
     # surround-change
     'chapel': 'cs',
@@ -88,9 +151,6 @@ for_temp_escape_prefix = {
     'spronko': 'O',
     # new-line-below
     'spronk': 'o',
-
-    # copy
-    'yank': 'yy',
 
     # find
     'marco': '/',

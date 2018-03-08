@@ -60,6 +60,7 @@ keymap = {
     'lessqual': ' <= ',
     'grayqual': ' >= ',
     'equals': '=',
+    'equeft': ' = ',
     '([is] equal to | longqual)': ' == ',
     '([is] not equal to | banquall)': ' != ',
     'trickle': ' === ',
@@ -88,7 +89,7 @@ keymap = {
 
     '(dot dot | dotdot | doodle)': '..',
     '(enter | shock)': Key('enter'),
-    '(delete | junk)': Key('backspace'),
+    'junk': Key('backspace'),
     'spunk': Key('delete'),
 
 

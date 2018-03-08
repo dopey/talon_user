@@ -13,6 +13,8 @@ keymap = {
     'go back': 'cd -\n',
     'shell copy': 'cp ',
     'shell copy curse': 'cp -r',
+    'shell list': 'ls ',
+    'shell list all': 'ls -la',
     'shell make (durr | dear)': 'mkdir ',
     'shell mipple': 'mkdir -p ',
     'shell move': 'mv ',
