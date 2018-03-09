@@ -38,7 +38,8 @@ keymap = {
     'jet status': 'git status ',
 
     # Tools
-    'pee socks': 'ps aux '
+    'gripper': 'grep -r ',
+    'pee socks': 'ps aux ',
 }
 
 ctx.keymap(keymap)
