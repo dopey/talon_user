@@ -11,6 +11,7 @@ keymap = {
     '(la | run la)': 'ls -la\n',
     'durrup': 'cd ..; ls\n',
     'go back': 'cd -\n',
+
     'shell copy': 'cp ',
     'shell copy curse': 'cp -r',
     'shell list': 'ls ',
@@ -20,6 +21,7 @@ keymap = {
     'shell move': 'mv ',
     'shell remove': 'rm ',
     'shell remove curse': 'rm -rf ',
+
     # Git
     'jet': 'git ',
     'jet add': 'git add ',
@@ -35,9 +37,8 @@ keymap = {
     'jet stash': 'git stash ',
     'jet status': 'git status ',
 
-    # would require to symlink sublime -
-    # http://olivierlacan.com/posts/launch-sublime-text-3-from-the-command-line/
-    'sublime open': Str('sublime .'),
+    # Tools
+    'pee socks': 'ps aux '
 }
 
 ctx.keymap(keymap)
