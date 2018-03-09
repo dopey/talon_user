@@ -28,8 +28,11 @@ keymap = {
     'jet checkout branch': 'git checkout -B ',
     'jet commit': 'git commit ',
     'jet diff': 'git diff ',
+    'jet merge': 'git merge',
     'jet pull': 'git pull ',
     'jet push': 'git push ',
+    'jet rebase': 'git rebase -i HEAD~',
+    'jet stash': 'git stash ',
     'jet status': 'git status ',
 
     # would require to symlink sublime -

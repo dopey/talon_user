@@ -115,7 +115,7 @@ ctx = Context('input')
 keymap = {}
 keymap.update(alpha)
 keymap.update({
-    'phrase <dgndictation> [over]': text,
+    'say <dgndictation> [over]': text,
     'word <dgnwords>': word,
     '(%s)+ <dgndictation>' % (' | '.join(formatters)): FormatText,
 })

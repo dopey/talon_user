@@ -17,17 +17,17 @@ def temp_escape_prefix(command):
     # ',/': maps to '<esc>l' in insert mode, maps to '<nop>' in other modes.
     return prefix(command, ',/')
 
-def get_first_word(m):
-    print(m.dgndictation[0]._words)
-    return str(m.dgndictation[0]._words[0])
+def get_first_word(input):
+    print(input.dgndictation[0]._words)
+    return str(input.dgndictation[0]._words[0]).lower()
 
-def find_next_word(m):
-    word = get_first_word(m)
+def find_next_word(input):
+    word = get_first_word(input)
     Str("/%s\n" % word)(None)
 
 numeral_map = {
     'oh': '0',
-    'bun': '1',
+    'gun': '1',
     'shoe': '2',
     'me': '3',
     'door': '4',
@@ -60,6 +60,7 @@ def get_words(input):
     words = [parse_word(word) for word in tmp]
     return words
 
+
 def jump(input):
     words = get_words(input)
     jump_first(words)
@@ -72,6 +73,7 @@ def jump_first(words):
 
 def range_action(action, input):
     words = get_words(input)
+    print(words)
     remainder = jump_first(words)
     press('V')
     if remainder:
