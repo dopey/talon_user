@@ -167,13 +167,13 @@ for_temp_escape_prefix = {
 
     # repeat
     'rep': Rep(1),
+
+    # center
+    'zen': 'zz',
 }
 
 
 keymap = {
-    # center
-    'zen': 'zz',
-
     # copy
     'yank': 'yy',
     # delete
