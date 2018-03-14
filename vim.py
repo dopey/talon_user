@@ -171,6 +171,9 @@ for_temp_escape_prefix = {
 
 
 keymap = {
+    # center
+    'zen': 'zz',
+
     # copy
     'yank': 'yy',
     # delete
