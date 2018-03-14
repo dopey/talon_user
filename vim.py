@@ -82,8 +82,12 @@ def range_action(action, input):
 
 
 for_temp_escape_prefix = {
+    # copy
+    'yank': 'yy',
     # range-copy
     'yank <dgndictation>': functools.partial(range_action, 'y'),
+    # delete
+    'snipline': 'dd',
     # range-delete
     'snipline <dgndictation>': functools.partial(range_action, 'd'),
     # range-poach
