@@ -157,7 +157,7 @@ for_temp_escape_prefix = {
     # find
     'marco': '/',
     # find-current
-    'marthis': '*n',
+    'marthis': '*',
     # find-dictation
     'crew <dgndictation>': find_next_word,
     # find-next
