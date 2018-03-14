@@ -17,6 +17,7 @@ keymap = {
     'shell copy': 'cp ',
     'shell copy curse': 'cp -r',
     'shell exit': [Key('ctrl-c'), 'exit\n'],
+    'shell kill': Key('ctrl-c'),
     'shell list': 'ls ',
     'shell list all': 'ls -la',
     'shell make (durr | dear)': 'mkdir ',
