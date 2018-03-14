@@ -82,12 +82,8 @@ def range_action(action, input):
 
 
 for_temp_escape_prefix = {
-    # copy
-    'yank': 'yy',
     # range-copy
     'yank <dgndictation>': functools.partial(range_action, 'y'),
-    # delete
-    'snipline': 'dd',
     # range-delete
     'snipline <dgndictation>': functools.partial(range_action, 'd'),
     # range-poach
@@ -174,7 +170,21 @@ for_temp_escape_prefix = {
 }
 
 
-keymap = {}
+keymap = {
+    # copy
+    'yank': 'yy',
+    # delete
+    'snipline': 'dd',
+
+    # jump
+    'spring': 'gg',
+    # jump-insert-bol
+    'springy': 'ggi',
+    # jump-insert-eol
+    'springer': 'ggA',
+    # jump-new-below
+    'springo': 'ggo',
+}
 
 keymap.update({k: temp_escape_prefix(for_temp_escape_prefix[k]) for k in for_temp_escape_prefix})
 
