@@ -26,6 +26,7 @@ def find_next_word(input):
     Str("/%s\n" % word)(None)
 
 numeral_map = {
+    'o': '0',
     'oh': '0',
     'gun': '1',
     'shoe': '2',
