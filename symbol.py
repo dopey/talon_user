@@ -66,7 +66,7 @@ keymap = {
     'trickle': ' === ',
     '(ranqual | nockle)': ' !== ',
 
-    '(arrow | lambo)': '->',
+    '(arrow | lambo)': ' -> ',
     'shrocket': ' => ',
     'sinker': [Key('cmd-right ;')],
 
@@ -90,9 +90,11 @@ keymap = {
     '(dot dot | dotdot | doodle)': '..',
     '(enter | shock)': Key('enter'),
     'junk': Key('backspace'),
+    'junk 2': [Key('backspace'), Key('backspace')],
+    'junk 3': [Key('backspace'), Key('backspace'), Key('backspace')],
+    'junk 4': [Key('backspace'), Key('backspace'), Key('backspace'), Key('backspace')],
+    'junk 5': [Key('backspace'), Key('backspace'), Key('backspace'), Key('backspace'), Key('backspace')],
     'spunk': Key('delete'),
-
-
 }
 
 ctx.keymap(keymap)
