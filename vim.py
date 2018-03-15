@@ -86,18 +86,11 @@ for_temp_escape_prefix = {
     # range-copy
     'yank <dgndictation>': functools.partial(range_action, 'y'),
     # range-delete
-    'snipline <dgndictation>': functools.partial(range_action, 'd'),
+    'delete lines <dgndictation>': functools.partial(range_action, 'd'),
     # range-poach
     'poach <dgndictation>': functools.partial(range_action, 'p'),
     # range-visual
     'visor <dgndictation>': functools.partial(range_action, ''),
-
-    # buffer-quit
-    'barf': ':q\n',
-    # buffer-write
-    'sage': ':w\n',
-    # buffer-write-quit
-    'ragequit': ':wq\n',
 
     # jump
     'spring <dgndictation>': jump,
@@ -114,8 +107,12 @@ for_temp_escape_prefix = {
     'doomway': 'G',
     # move-forward-word
     'wax': 'w',
+    # move-forward-word
+    'waxy': 'wi',
     # move-forward-big-word
     'wacko': 'W',
+    # move-forward-big-word-insert
+    'wacky': 'Wi',
     # move-line-end-insert
     'derek': 'A',
     # move-page-down
@@ -178,16 +175,26 @@ keymap = {
     # copy
     'yank': 'yy',
     # delete
-    'snipline': 'dd',
+    'delete line': 'dd',
 
     # jump
-    'spring': 'gg',
+    'jump': 'gg',
     # jump-insert-bol
-    'springy': 'ggi',
+    'jumpy': 'ggi',
     # jump-insert-eol
-    'springer': 'ggA',
+    'jumper': 'ggA',
     # jump-new-below
-    'springo': 'ggo',
+    'jumpo': 'ggo',
+
+    #symbol
+    'block': ['{\n}', Key('esc'), 'O'],
+
+    # buffer-quit
+    'barf': [Key('esc'), ':q\n'],
+    # buffer-write
+    'sage': [Key('esc'), ':w\n'],
+    # buffer-write-quit
+    'ragequit': [Key('esc'), ':wq\n'],
 }
 
 keymap.update({k: temp_escape_prefix(for_temp_escape_prefix[k]) for k in for_temp_escape_prefix})

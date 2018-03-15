@@ -34,9 +34,9 @@ keymap = {
     'jet checkout branch': 'git checkout -B ',
     'jet commit': 'git commit ',
     'jet diff': 'git diff ',
-    'jet merge': 'git merge',
+    'jet merge': 'git merge ',
     'jet pull': 'git pull ',
-    'jet pull rebase': 'git pull --rebase ',
+    'jet pull base': 'git pull --rebase ',
     'jet push': 'git push ',
     'jet rebase': 'git rebase -i HEAD~',
     'jet stash': 'git stash ',
@@ -45,6 +45,7 @@ keymap = {
     # Tools
     'gripper': 'grep -r ',
     'pee socks': 'ps aux ',
+    'vi': 'vi ',
 }
 
 ctx.keymap(keymap)

@@ -79,7 +79,7 @@ keymap = {
     'coif': ['""', Key('left')],
     'glitch': ['``', Key('left')],
     'kirk': ['{}', Key('left')],
-    '(block | kirblock)': ['{}', Key('left enter')],
+    #'(block | kirblock)': ['{}', Key('left enter')],
     '(call | prekris)': '()',
     'prex': ['()', Key('left')],
     'prex-block': ['(', Key('enter')],

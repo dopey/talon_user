@@ -22,7 +22,7 @@ keymap = {
     # '(new tab | peach)': Key('cmd-t'),
 
     # deleting
-    '(snipline | delete line)': Key('cmd-right cmd-backspace'),
+    # '(delete line)': Key('cmd-right cmd-backspace'),
     'steffi': Key('alt-ctrl-backspace'),
     'stippy': Key('alt-ctrl-delete'),
     'carmex': Key('alt-backspace'),
