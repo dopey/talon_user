@@ -69,6 +69,7 @@ formatters = {
     'pathway':  (True, lambda i, word, _: word if i == 0 else '/'+word),
     'dotsway':  (True, lambda i, word, _: word if i == 0 else '.'+word),
     'snake':  (True, lambda i, word, _: word if i == 0 else '_'+word),
+    'yellsmash':  (True, lambda i, word, _: word.upper()),
     'yellsnik':  (True, lambda i, word, _: word.upper() if i == 0 else '_'+word.upper()),
     'smash':  (True, lambda i, word, _: word),
     'dollcram': (True, lambda i, word, _: '$'+word if i == 0 else word.capitalize()),

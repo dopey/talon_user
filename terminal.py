@@ -44,7 +44,8 @@ keymap = {
     'jet status': 'git status\n',
 
     # Tools
-    'gripper': 'grep -r ',
+    'grip': ['grep  .', Key('left left')],
+    'gripper': ['grep -r  .', Key('left left')],
     'pee socks': 'ps aux ',
     'vi': 'vi ',
 }

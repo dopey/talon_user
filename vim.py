@@ -168,6 +168,9 @@ for_temp_escape_prefix = {
 
     # center
     'zen': 'zz',
+
+    # execute to the right
+    'slap': [Key('esc'), ':w\n', Key('cmd-right up enter')],
 }
 
 
