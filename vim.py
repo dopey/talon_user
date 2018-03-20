@@ -189,8 +189,8 @@ keymap = {
     # jump-new-below
     'jumpo': 'ggo',
 
-    #symbol
-    'block': ['{\n}', Key('esc'), 'O'],
+    # symbol
+    'kirblock': ['{\n}', Key('esc'), 'O'],
 
     # buffer-quit
     'barf': [Key('esc'), ':q\n'],

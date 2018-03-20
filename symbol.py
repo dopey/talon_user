@@ -59,7 +59,7 @@ keymap = {
     'starqual': '*=',
     'lessqual': ' <= ',
     'grayqual': ' >= ',
-    'equals': '=',
+    'smaqual': '=',
     'equeft': ' = ',
     '([is] equal to | longqual)': ' == ',
     '([is] not equal to | banquall)': ' != ',
