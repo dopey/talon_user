@@ -5,6 +5,27 @@ terminals = ('com.apple.Terminal', 'com.googlecode.iterm2')
 ctx = Context('terminal', func=lambda app, win: any(
     t in app.bundle for t in terminals))
 
+mapping = {
+    'semicolon': ';',
+    r'new-line': '\n',
+    r'new-paragraph': '\n\n',
+}
+
+def parse_word(word):
+    word = word.lstrip('\\').split('\\', 1)[0]
+    word = mapping.get(word, word)
+    return word
+
+# Ask for forgiveness not permission in failure scenario.
+# https://stackoverflow.com/questions/610883/how-to-know-if-an-object-has-an-attribute-in-python
+def text(m):
+    try:
+        tmp = [str(s).lower() for s in m.dgndictation[0]._words]
+        words = [parse_word(word) for word in tmp]
+        Str(' '.join(words))(None)
+    except AttributeError:
+        return
+
 keymap = {
     'cd': ['cd ; ls', Key('left'), Key('left'), Key('left'), Key('left')],
     '(ls | run ellis | run alice)': 'ls\n',
@@ -14,31 +35,33 @@ keymap = {
 
     'pseudo': 'sudo ',
     'shell clear': [Key('ctrl-c'), 'clear\n'],
-    'shell copy': 'cp ',
-    'shell copy curse': 'cp -r',
+    'shell copy [<dgndictation>]': ['cp ', text],
+    'shell copy curse [<dgndictation>]': ['cp -r', text],
     'shell exit': [Key('ctrl-c'), 'exit\n'],
     'shell kill': Key('ctrl-c'),
-    'shell list': 'ls ',
-    'shell list all': 'ls -la',
-    'shell make (durr | dear)': 'mkdir ',
-    'shell mipple': 'mkdir -p ',
-    'shell move': 'mv ',
-    'shell remove': 'rm ',
-    'shell remove curse': 'rm -rf ',
+    'shell list [<dgndictation>]': ['ls ', text],
+    'shell list all [<dgndictation>]': ['ls -la ', text],
+    'shell make (durr | dear) [<dgndictation>]': ['mkdir ', text],
+    'shell mipple [<dgndictation>]': ['mkdir -p ', text],
+    'shell move [<dgndictation>]': ['mv ', text],
+    'shell remove [<dgndictation>]': ['rm ', text],
+    'shell remove curse [<dgndictation>]': ['rm -rf ', text],
 
     # Git
-    'jet': 'git ',
-    'jet add': 'git add ',
-    'jet clone': 'git clone ',
-    'jet checkout': 'git checkout ',
-    'jet checkout branch': 'git checkout -B ',
-    'jet commit': 'git commit ',
+    'jet [<dgndictation>]': ['git ', text],
+    'jet add [<dgndictation>]': ['git add ', text],
+    'jet branch [<dgndictation>]': ['git br ', text],
+    'jet branch delete [<dgndictation>]': ['git br -D ', text],
+    'jet clone [<dgndictation>]': ['git clone ', text],
+    'jet checkout [<dgndictation>]': ['git checkout ', text],
+    'jet checkout branch [<dgndictation>]': ['git checkout -B ', text],
+    'jet commit [<dgndictation>]': ['git commit ', text],
     'jet diff': 'git diff\n',
     'jet history': 'git hist\n',
-    'jet merge': 'git merge ',
-    'jet pull': 'git pull ',
-    'jet pull base': 'git pull --rebase ',
-    'jet push': 'git push origin ',
+    'jet merge [<dgndictation>]': ['git merge ', text],
+    'jet pull [<dgndictation>]': ['git pull ', text],
+    'jet pull base [<dgndictation>]': ['git pull --rebase ', text],
+    'jet push [<dgndictation>]': ['git push ', text],
     'jet rebase': 'git rebase -i HEAD~',
     'jet stash': 'git stash\n',
     'jet status': 'git status\n',
