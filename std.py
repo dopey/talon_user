@@ -126,6 +126,7 @@ shrink_map = {
     'context': 'ctx',
     'delete': 'del',
     'error': 'err',
+    'ever': 'err',
     'format': 'fmt',
     'message': 'msg',
     'package': 'pkg',

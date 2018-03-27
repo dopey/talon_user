@@ -171,6 +171,9 @@ for_temp_escape_prefix = {
 
     # execute to the right
     'slap': [Key('esc'), ':w\n', Key('cmd-right up enter')],
+
+    # cut line
+    'chomp': 'cc',
 }
 
 
