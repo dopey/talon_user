@@ -27,8 +27,17 @@ mapping = {
     r'new-paragraph': '\n\n',
 }
 
+token_replace = {
+    'bite': 'byte',
+    'bites': 'bytes',
+    'i\\pronoun': 'I',
+    'i\'m': 'I\'m',
+    'i\'ve': 'I\'ve',
+    'i\'d': 'I\'d',
+}
 
 def parse_word(word):
+    word = token_replace.get(word, word)
     word = word.lstrip('\\').split('\\', 1)[0]
     word = mapping.get(word, word)
     return word
@@ -81,7 +90,7 @@ formatters = {
     'title':  (False, lambda i, word, _: word.capitalize()),
     'yeller': (False, lambda i, word, _: word.upper()),
     'dub-string': (False, surround('"')),
-    'string': (False, surround("'")),
+    #'string': (False, surround("'")),
     'glitch': (False, surround("`")),
     'padded': (False, surround(" ")),
     'rot thirteen':  (False, rot13),
