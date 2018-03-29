@@ -75,9 +75,7 @@ keymap = {
     '(empty array | brackers)': '[]',
     'brax-block': ['[', Key('enter')],
     '(call | prekris)': '()',
-    'prex': ['()', Key('left')],
     'prex-block': ['(', Key('enter')],
-    'precoif': ['("")', Key('left'), Key('left')],
 
     'and sign': '&',
 

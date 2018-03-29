@@ -57,6 +57,7 @@ def word(m):
 
 
 def surround(by):
+    print(by)
     l = len(by)
     if l == 1:
         start = by
@@ -107,12 +108,13 @@ formatters = {
     'angler': (False, surround('<>'), 1),
     'brax': (False, surround('[]'), 1),
     'coif': (False, surround('"'), 1),
-    'kirk': (False, surround('{}'), 1),
-    'posh': (False, surround("'"), 1),
     'glitch': (False, surround("`"), 1),
+    'kirk': (False, surround('{}'), 1),
+    'precoif': (False, surround('(\"\")'), 2),
+    'prex': (False, surround("()"), 1),
+    'posh': (False, surround("'"), 1),
     'padded': (False, surround(" "), 1),
 }
-
 
 
 def FormatText(m):
