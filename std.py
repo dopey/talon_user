@@ -34,6 +34,7 @@ token_replace = {
     'i\'m': 'I\'m',
     'i\'ve': 'I\'ve',
     'i\'d': 'I\'d',
+    'jott': 'in'
 }
 
 def parse_word(word):
@@ -54,12 +55,23 @@ def word(m):
     words = [parse_word(word) for word in tmp]
     Str(' '.join(words))(None)
 
+
 def surround(by):
+    l = len(by)
+    if l == 1:
+        start = by
+        end = by
+    elif l % 2 == 0:
+        m = int(l/2)
+        start = by[:m]
+        end = by[m:]
+    else:
+        raise Exception('%s bad input for surround' % by)
     def func(i, word, last):
         if i == 0:
-            word = by + word
+            word = start + word
         if last:
-            word += by
+            word += end
         return word
     return func
 
@@ -73,28 +85,34 @@ def rot13(i, word, _):
     return out
 
 formatters = {
-    'dunder': (True, lambda i, word, _: '__%s__' % word if i == 0 else word),
-    'cram':  (True, lambda i, word, _: word if i == 0 else word.capitalize()),
-    'pathway':  (True, lambda i, word, _: word if i == 0 else '/'+word),
-    'dotsway':  (True, lambda i, word, _: word if i == 0 else '.'+word),
-    'snake':  (True, lambda i, word, _: word if i == 0 else '_'+word),
-    'yellsmash':  (True, lambda i, word, _: word.upper()),
-    'yellsnik':  (True, lambda i, word, _: word.upper() if i == 0 else '_'+word.upper()),
-    'smash':  (True, lambda i, word, _: word),
-    'dollcram': (True, lambda i, word, _: '$'+word if i == 0 else word.capitalize()),
-    'champ': (True, lambda i, word, _: word.capitalize() if i == 0 else " "+word),
-    'lowcram': (True, lambda i, word, _: '@'+word if i == 0 else word.capitalize()),
-    'criff': (True, lambda i, word, _: word.capitalize()),
+    'dunder': (True, lambda i, word, _: '__%s__' % word if i == 0 else word, 0),
+    'cram':  (True, lambda i, word, _: word if i == 0 else word.capitalize(), 0),
+    'pathway':  (True, lambda i, word, _: word if i == 0 else '/'+word, 0),
+    'dotsway':  (True, lambda i, word, _: word if i == 0 else '.'+word, 0),
+    'snake':  (True, lambda i, word, _: word if i == 0 else '_'+word, 0),
+    'yellsmash':  (True, lambda i, word, _: word.upper(), 0),
+    'yellsnik':  (True, lambda i, word, _: word.upper() if i == 0 else '_'+word.upper(), 0),
+    'smash':  (True, lambda i, word, _: word, 0),
+    'dollcram': (True, lambda i, word, _: '$'+word if i == 0 else word.capitalize(), 0),
+    'champ': (True, lambda i, word, _: word.capitalize() if i == 0 else " "+word, 0),
+    'lowcram': (True, lambda i, word, _: '@'+word if i == 0 else word.capitalize(), 0),
+    'criff': (True, lambda i, word, _: word.capitalize(), 0),
 
-    'spine':  (True, lambda i, word, _: word if i == 0 else '-'+word),
-    'title':  (False, lambda i, word, _: word.capitalize()),
-    'yeller': (False, lambda i, word, _: word.upper()),
-    'dub-string': (False, surround('"')),
-    #'string': (False, surround("'")),
-    'glitch': (False, surround("`")),
-    'padded': (False, surround(" ")),
-    'rot thirteen':  (False, rot13),
+    'spine':  (True, lambda i, word, _: word if i == 0 else '-'+word, 0),
+    'swipe':  (False, lambda i, word, _: (', ' + word) if i == 0 else word, 0),
+    'title':  (False, lambda i, word, _: word.capitalize(), 0),
+    'yeller': (False, lambda i, word, _: word.upper(), 0),
+
+    # Surrounders
+    'angler': (False, surround('<>'), 1),
+    'brax': (False, surround('[]'), 1),
+    'coif': (False, surround('"'), 1),
+    'kirk': (False, surround('{}'), 1),
+    'posh': (False, surround("'"), 1),
+    'glitch': (False, surround("`"), 1),
+    'padded': (False, surround(" "), 1),
 }
+
 
 
 def FormatText(m):
@@ -102,14 +120,19 @@ def FormatText(m):
     for w in m._words:
         if isinstance(w, Word):
             fmt.append(w.word)
-    words = [str(s).lower() for s in m.dgndictation[0]._words]
+
+    try:
+        words = [str(s).lower() for s in m.dgndictation[0]._words]
+    except AttributeError:
+        words = [""]
 
     tmp = []
     spaces = True
+    move_left = 0
     for i, word in enumerate(words):
         word = parse_word(word)
         for name in reversed(fmt):
-            smash, func = formatters[name]
+            smash, func, move_left = formatters[name]
             word = func(i, word, i == len(words)-1)
             spaces = spaces and not smash
         tmp.append(word)
@@ -119,6 +142,9 @@ def FormatText(m):
     if not spaces:
         sep = ''
     Str(sep.join(words))(None)
+    while move_left > 0:
+        press('left')
+        move_left -= 1
 
 def ShrinkWord(m):
     word = str(m.dgndictation[0]._words[0]).lower()
@@ -260,7 +286,7 @@ keymap.update({
     'say <dgndictation> [over]': text,
     'shrink <dgndictation>': ShrinkWord,
     'word <dgnwords>': word,
-    '(%s)+ <dgndictation>' % (' | '.join(formatters)): FormatText,
+    '(%s)+ [<dgndictation>]' % (' | '.join(formatters)): FormatText,
 })
 
 ctx.keymap(keymap)
