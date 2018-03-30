@@ -31,7 +31,7 @@ keymap = {
     '(and sign | ampersand | amper)': '&',
     '(pipe | spike)': '|',
 
-    #'(dubquote | double quote | quatches)': '"',
+    '(dubquote | double quote | quatches)': '"',
     '(quote | quatchet)': "'",
     'triple quote': "'''",
     'tick': "`",
