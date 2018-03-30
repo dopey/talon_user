@@ -34,7 +34,8 @@ token_replace = {
     'i\'m': 'I\'m',
     'i\'ve': 'I\'ve',
     'i\'d': 'I\'d',
-    'jott': 'in'
+    'jott': 'in',
+    'jason': 'json',
 }
 
 def parse_word(word):
