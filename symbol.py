@@ -29,7 +29,7 @@ keymap = {
     'caret': '^',
     'at sign': '@',
     '(and sign | ampersand | amper)': '&',
-    '(pipe | spike)': '|',
+    'spike': '|',
 
     '(dubquote | double quote | quatches)': '"',
     '(quote | quatchet)': "'",
@@ -76,6 +76,15 @@ keymap = {
     'brax-block': ['[', Key('enter')],
     '(call | prekris)': '()',
     'prex-block': ['(', Key('enter')],
+    'angler': ['<>', Key('left')],
+    'brax': ['[]', Key('left')],
+    'coif': ['""', Key('left')],
+    'glitch': ['``', Key('left')],
+    'kirk': ['{}', Key('left')],
+    'precoif': ['("")', Key('left'), Key('left')],
+    'prex': ['()', Key('left')],
+    'posh': ["''", Key('left')],
+    #'padded': (False, surround(" "), 1),
 
     'and sign': '&',
 

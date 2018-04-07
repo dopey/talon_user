@@ -27,16 +27,6 @@ keymap = {
     'state for': ['for ()', Key('left')],
     'state for each': ['foreach ()', Key('left')],
     'state switch': ['switch ()', Key('left')],
-
-    'const': 'const ',
-    'static': 'static ',
-    'tip pent': 'int ',
-
-    'word no': 'null',
-    'word kneel': 'nil',
-    'word printf': 'printf',
-    'word define': 'def ',
-    'word import': 'import ',
 }
 
 ctx.keymap(keymap)

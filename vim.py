@@ -182,6 +182,10 @@ keymap = {
     'yank': 'yy',
     # delete
     'delete line': 'dd',
+    # delete-partial-word
+    'dick': 'de',
+    # delete-partial-big-word
+    'dickle': 'dE',
 
     # jump
     'jump': 'gg',
@@ -201,6 +205,8 @@ keymap = {
     'sage': [Key('esc'), ':w\n'],
     # buffer-write-quit
     'ragequit': [Key('esc'), ':wq\n'],
+    # buffer-write-build
+    'combat': ',b',
 }
 
 keymap.update({k: temp_escape_prefix(for_temp_escape_prefix[k]) for k in for_temp_escape_prefix})

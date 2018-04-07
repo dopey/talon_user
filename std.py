@@ -34,8 +34,11 @@ token_replace = {
     'i\'m': 'I\'m',
     'i\'ve': 'I\'ve',
     'i\'d': 'I\'d',
+    'neil': 'nil',
+    'jot': 'jwt',
     'jott': 'jwt',
     'jason': 'json',
+    'route': 'root',
 }
 
 def parse_word(word):
@@ -58,7 +61,6 @@ def word(m):
 
 
 def surround(by):
-    print(by)
     l = len(by)
     if l == 1:
         start = by
@@ -104,17 +106,6 @@ formatters = {
     'swipe':  (False, lambda i, word, _: (', ' + word) if i == 0 else word, 0),
     'title':  (False, lambda i, word, _: word.capitalize(), 0),
     'yeller': (False, lambda i, word, _: word.upper(), 0),
-
-    # Surrounders
-    'angler': (False, surround('<>'), 1),
-    'brax': (False, surround('[]'), 1),
-    'coif': (False, surround('"'), 1),
-    'glitch': (False, surround("`"), 1),
-    'kirk': (False, surround('{}'), 1),
-    'precoif': (False, surround('(\"\")'), 2),
-    'prex': (False, surround("()"), 1),
-    'posh': (False, surround("'"), 1),
-    'padded': (False, surround(" "), 1),
 }
 
 
@@ -164,6 +155,7 @@ shrink_map = {
     'context': 'ctx',
     'delete': 'del',
     'error': 'err',
+    'errors': 'errs',
     'ever': 'err',
     'format': 'fmt',
     'message': 'msg',
