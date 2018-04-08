@@ -1,6 +1,7 @@
 from talon.voice import Context, Str, Word, Key, Rep, press
 from typing import Iterable
 import functools
+import time
 
 ctx = Context('vim', bundle='com.googlecode.iterm2')
 
@@ -170,7 +171,7 @@ for_temp_escape_prefix = {
     'zen': 'zz',
 
     # execute to the right
-    'slap': [Key('esc'), ':w\n', Key('cmd-right up enter')],
+    'slap': [Key('esc'), ':w\n', lambda m: time.sleep(0.25), Key('cmd-right up enter')],
 
     # cut line
     'chomp': 'cc',
@@ -197,7 +198,7 @@ keymap = {
     'jumpo': 'ggo',
 
     # symbol
-    'kirblock': ['{\n}', Key('esc'), 'O'],
+    'kirblock': ['{\n}', Key('esc'), lambda m: time.sleep(0.10), 'O'],
 
     # buffer-quit
     'barf': [Key('esc'), ':q\n'],
