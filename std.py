@@ -103,7 +103,6 @@ formatters = {
     'criff': (True, lambda i, word, _: word.capitalize(), 0),
 
     'spine':  (True, lambda i, word, _: word if i == 0 else '-'+word, 0),
-    'swipe':  (False, lambda i, word, _: (', ' + word) if i == 0 else word, 0),
     'title':  (False, lambda i, word, _: word.capitalize(), 0),
     'yeller': (False, lambda i, word, _: word.upper(), 0),
 }

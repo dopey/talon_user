@@ -39,7 +39,7 @@ keymap = {
     '(dot | period)': '.',
     'comma': ',',
     'comshock': [',', Key('enter')],
-    #'swipe': ', ',
+    'swipe': ', ',
     'coalgap': ': ',
     'skoosh': ' ',
     '[forward] slash': '/',
