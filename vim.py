@@ -175,6 +175,15 @@ for_temp_escape_prefix = {
 
     # cut line
     'chomp': 'cc',
+
+    # buffer-quit
+    'barf': ':q\n',
+    # buffer-write
+    'sage': ':w\n',
+    # buffer-write-quit
+    'ragequit': ':wq\n',
+    # escape
+    'lulu': Key('right'),
 }
 
 
@@ -200,16 +209,8 @@ keymap = {
     # symbol
     'kirblock': ['{\n}', Key('esc'), lambda m: time.sleep(0.1), 'O'],
 
-    # buffer-quit
-    'barf': [Key('esc'), lambda m: time.sleep(0.1), ':q\n'],
-    # buffer-write
-    'sage': [Key('esc'), lambda m: time.sleep(0.1), ':w\n'],
-    # buffer-write-quit
-    'ragequit': [Key('esc'), lambda m: time.sleep(0.1), ':wq\n'],
     # buffer-write-build
     'combat': ',b',
-
-    'lulu': [Key('esc'), lambda m: time.sleep(0.1), Key('right')]
 }
 
 keymap.update({k: temp_escape_prefix(for_temp_escape_prefix[k]) for k in for_temp_escape_prefix})
