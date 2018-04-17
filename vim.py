@@ -171,7 +171,7 @@ for_temp_escape_prefix = {
     'zen': 'zz',
 
     # execute to the right
-    'slap': [Key('esc'), ':w\n', lambda m: time.sleep(0.25), Key('cmd-right up enter')],
+    'slap': [Key('esc'), ':w\n', lambda m: time.sleep(0.50), Key('cmd-right up enter')],
 
     # cut line
     'chomp': 'cc',
@@ -198,16 +198,18 @@ keymap = {
     'jumpo': 'ggo',
 
     # symbol
-    'kirblock': ['{\n}', Key('esc'), lambda m: time.sleep(0.10), 'O'],
+    'kirblock': ['{\n}', Key('esc'), lambda m: time.sleep(0.1), 'O'],
 
     # buffer-quit
-    'barf': [Key('esc'), ':q\n'],
+    'barf': [Key('esc'), lambda m: time.sleep(0.1), ':q\n'],
     # buffer-write
-    'sage': [Key('esc'), ':w\n'],
+    'sage': [Key('esc'), lambda m: time.sleep(0.1), ':w\n'],
     # buffer-write-quit
-    'ragequit': [Key('esc'), ':wq\n'],
+    'ragequit': [Key('esc'), lambda m: time.sleep(0.1), ':wq\n'],
     # buffer-write-build
     'combat': ',b',
+
+    'lulu': [Key('esc'), lambda m: time.sleep(0.1), Key('right')]
 }
 
 keymap.update({k: temp_escape_prefix(for_temp_escape_prefix[k]) for k in for_temp_escape_prefix})

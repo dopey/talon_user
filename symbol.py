@@ -3,7 +3,7 @@ from talon.voice import Context, Key
 ctx = Context('symbol')
 
 keymap = {
-    '(escape | lulu | randall)': [Key('esc'), Key('right')],
+    'randall': Key('esc'),
     '(question [mark] | questo)': '?',
     '(minus | dash)': '-',
     'plus': '+',

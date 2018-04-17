@@ -30,6 +30,7 @@ mapping = {
 token_replace = {
     'bite': 'byte',
     'bites': 'bytes',
+    'doctor': 'docker',
     'i\\pronoun': 'I',
     'i\'m': 'I\'m',
     'i\'ve': 'I\'ve',
