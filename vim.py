@@ -171,7 +171,7 @@ for_temp_escape_prefix = {
     'zen': 'zz',
 
     # execute to the right
-    'slap': [Key('esc'), ':w\n', lambda m: time.sleep(0.50), Key('cmd-right up enter')],
+    'slap': [':w\n', lambda m: time.sleep(0.50), Key('cmd-right up enter')],
 
     # cut line
     'chomp': 'cc',
