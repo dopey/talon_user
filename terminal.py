@@ -50,8 +50,8 @@ keymap = {
     # Git
     'jet [<dgndictation>]': ['git ', text],
     'jet add [<dgndictation>]': ['git add ', text],
-    'jet branch [<dgndictation>]': ['git br ', text],
-    'jet branch delete [<dgndictation>]': ['git br -D ', text],
+    'jet branch': 'git br\n',
+    'jet branch delete [<dgndictation>]': ['git br -D max/', text],
     'jet clone [<dgndictation>]': ['git clone ', text],
     'jet checkout master': 'git checkout master\n',
     'jet checkout max': 'git checkout max/',
