@@ -47,6 +47,11 @@ keymap = {
     'shell remove [<dgndictation>]': ['rm ', text],
     'shell remove curse [<dgndictation>]': ['rm -rf ', text],
 
+    # Dep
+    'dep ensure': 'dep ensure\n',
+    'dep ensure add': 'dep ensure -add ',
+    'dep ensure update': 'dep ensure -update\n',
+
     # Git
     'jet [<dgndictation>]': ['git ', text],
     'jet add [<dgndictation>]': ['git add ', text],
@@ -54,7 +59,7 @@ keymap = {
     'jet branch delete [<dgndictation>]': ['git br -D max/', text],
     'jet clone [<dgndictation>]': ['git clone ', text],
     'jet checkout master': 'git checkout master\n',
-    'jet checkout max': 'git checkout max/',
+    'jet checkout max [<dgndictation>]': ['git checkout max/', text],
     'jet checkout [<dgndictation>]': ['git checkout ', text],
     'jet checkout branch [<dgndictation>]': ['git checkout -B max/', text],
     'jet commit [<dgndictation>]': ['git commit ', text],
