@@ -47,12 +47,17 @@ keymap = {
     'shell remove [<dgndictation>]': ['rm ', text],
     'shell remove curse [<dgndictation>]': ['rm -rf ', text],
 
-    # Dep
-    'dep ensure': 'dep ensure\n',
-    'dep ensure add': 'dep ensure -add ',
-    'dep ensure update': 'dep ensure -update\n',
+    # dep
+    'dip ensure': 'dep ensure\n',
+    'dip ensure add': 'dep ensure -add ',
+    'dip ensure update': 'dep ensure -update\n',
 
-    # Git
+    # make
+    'make': 'make\n',
+    'make test': 'make test\n',
+    'make build': 'make build\n',
+
+    # git
     'jet [<dgndictation>]': ['git ', text],
     'jet add [<dgndictation>]': ['git add ', text],
     'jet branch': 'git br\n',
